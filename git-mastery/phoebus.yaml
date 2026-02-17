@@ -1,0 +1,7 @@
+title: "Git Mastery"
+description: "From first commit to advanced workflows. Learn Git from the ground up and master collaborative development."
+icon: "git"
+tags: ["git", "version-control", "collaboration", "devops"]
+estimated_duration: "10h"
+prerequisites:
+  - "linux-fundamentals"

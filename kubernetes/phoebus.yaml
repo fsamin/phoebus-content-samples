@@ -1,0 +1,7 @@
+title: "Kubernetes Essentials"
+description: "Deploy, scale, and manage containerized applications on Kubernetes. From pods to production-ready clusters."
+icon: "kubernetes"
+tags: ["kubernetes", "k8s", "orchestration", "cloud-native", "devops"]
+estimated_duration: "16h"
+prerequisites:
+  - "containerization"

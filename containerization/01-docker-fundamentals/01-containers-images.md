@@ -16,6 +16,10 @@ A container is a **lightweight, isolated process** that shares the host's kernel
 
 Unlike virtual machines, containers don't need a guest OS — they're fast to start and lightweight.
 
+:::tip
+The key mental model: a container is just a process with its own filesystem and network. It's not a VM!
+:::
+
 ## Containers vs VMs
 
 | Aspect | Container | Virtual Machine |
@@ -115,5 +119,9 @@ docker container prune
 | Harbor | self-hosted | Enterprise private registry |
 
 ## Summary
+
+:::warning
+Never store sensitive data (passwords, API keys) in Docker images. Use environment variables or secrets management instead.
+:::
 
 Containers provide consistent, reproducible environments from development to production. Images are the blueprints, containers are the running instances. Master `docker run`, `docker build`, and `docker logs` — they're your daily tools.

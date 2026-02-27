@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 300" width="600" height="300">
+  <defs>
+    <style>
+      .title { font: bold 16px sans-serif; fill: #333; }
+      .label { font: 13px sans-serif; fill: #fff; }
+      .sublabel { font: 11px sans-serif; fill: #666; }
+      .box { rx: 8; ry: 8; }
+    </style>
+  </defs>
+
+  <!-- VM Side -->
+  <text x="150" y="30" text-anchor="middle" class="title">Virtual Machine</text>
+  <rect x="30" y="40" width="240" height="240" class="box" fill="#e8e8e8" stroke="#999"/>
+  <!-- Guest OS boxes -->
+  <rect x="45" y="55" width="100" height="60" class="box" fill="#4a90d9"/>
+  <text x="95" y="82" text-anchor="middle" class="label">App A</text>
+  <text x="95" y="98" text-anchor="middle" class="label" style="font-size:10px">+ Libs</text>
+  <rect x="155" y="55" width="100" height="60" class="box" fill="#4a90d9"/>
+  <text x="205" y="82" text-anchor="middle" class="label">App B</text>
+  <text x="205" y="98" text-anchor="middle" class="label" style="font-size:10px">+ Libs</text>
+  <rect x="45" y="125" width="100" height="35" class="box" fill="#e67e22"/>
+  <text x="95" y="147" text-anchor="middle" class="label">Guest OS</text>
+  <rect x="155" y="125" width="100" height="35" class="box" fill="#e67e22"/>
+  <text x="205" y="147" text-anchor="middle" class="label">Guest OS</text>
+  <rect x="45" y="170" width="210" height="35" class="box" fill="#8e44ad"/>
+  <text x="150" y="192" text-anchor="middle" class="label">Hypervisor</text>
+  <rect x="45" y="215" width="210" height="35" class="box" fill="#2c3e50"/>
+  <text x="150" y="237" text-anchor="middle" class="label">Host OS</text>
+  <rect x="45" y="255" width="210" height="18" class="box" fill="#7f8c8d"/>
+  <text x="150" y="268" text-anchor="middle" class="label" style="font-size:10px">Hardware</text>
+
+  <!-- Container Side -->
+  <text x="450" y="30" text-anchor="middle" class="title">Container</text>
+  <rect x="330" y="40" width="240" height="240" class="box" fill="#e8e8e8" stroke="#999"/>
+  <rect x="345" y="55" width="65" height="60" class="box" fill="#27ae60"/>
+  <text x="377" y="82" text-anchor="middle" class="label">App A</text>
+  <text x="377" y="98" text-anchor="middle" class="label" style="font-size:10px">+ Libs</text>
+  <rect x="418" y="55" width="65" height="60" class="box" fill="#27ae60"/>
+  <text x="450" y="82" text-anchor="middle" class="label">App B</text>
+  <text x="450" y="98" text-anchor="middle" class="label" style="font-size:10px">+ Libs</text>
+  <rect x="491" y="55" width="65" height="60" class="box" fill="#27ae60"/>
+  <text x="523" y="82" text-anchor="middle" class="label">App C</text>
+  <text x="523" y="98" text-anchor="middle" class="label" style="font-size:10px">+ Libs</text>
+  <rect x="345" y="125" width="210" height="35" class="box" fill="#2980b9"/>
+  <text x="450" y="147" text-anchor="middle" class="label">Container Engine</text>
+  <rect x="345" y="215" width="210" height="35" class="box" fill="#2c3e50"/>
+  <text x="450" y="237" text-anchor="middle" class="label">Host OS</text>
+  <rect x="345" y="255" width="210" height="18" class="box" fill="#7f8c8d"/>
+  <text x="450" y="268" text-anchor="middle" class="label" style="font-size:10px">Hardware</text>
+
+  <!-- Annotations -->
+  <text x="150" y="295" text-anchor="middle" class="sublabel">Heavy · Minutes to start</text>
+  <text x="450" y="295" text-anchor="middle" class="sublabel">Light · Milliseconds to start</text>
+</svg>

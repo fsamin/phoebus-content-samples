@@ -2,10 +2,7 @@
 title: "Go Fundamentals"
 description: "Master functions, structs, interfaces, error handling, and concurrency basics."
 competencies:
-  - "go-functions"
-  - "go-structs-interfaces"
-  - "go-error-handling"
-  - "go-concurrency"
+  - "golang"
 ---
 
 # Go Fundamentals

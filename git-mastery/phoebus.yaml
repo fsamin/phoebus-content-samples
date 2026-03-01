@@ -4,4 +4,4 @@ icon: "git"
 tags: ["git", "version-control", "collaboration", "devops"]
 estimated_duration: "10h"
 prerequisites:
-  - "linux-fundamentals"
+  - "linux-cli"

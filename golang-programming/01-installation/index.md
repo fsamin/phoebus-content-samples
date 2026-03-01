@@ -2,8 +2,7 @@
 title: "Installing Go"
 description: "Install Go on Linux from the official tarball and configure your environment."
 competencies:
-  - "go-installation"
-  - "go-toolchain"
+  - "golang"
 ---
 
 # Installing Go

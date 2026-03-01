@@ -2,9 +2,7 @@
 title: "Helm Charts"
 description: "Package Kubernetes applications with Helm. Create, customize, and deploy charts."
 competencies:
-  - "helm-charts"
-  - "helm-templates"
-  - "helm-releases"
+  - "helm"
 ---
 
 # Helm Charts

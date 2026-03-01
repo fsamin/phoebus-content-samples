@@ -2,9 +2,7 @@
 title: "GPG — Encryption & Signing"
 description: "Create GPG keys, sign commits, encrypt files, and manage your web of trust."
 competencies:
-  - "gpg-key-management"
-  - "gpg-signing"
-  - "gpg-encryption"
+  - "linux-security"
 ---
 
 # GPG — Encryption & Signing

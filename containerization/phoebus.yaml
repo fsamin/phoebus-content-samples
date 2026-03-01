@@ -4,5 +4,4 @@ icon: "docker"
 tags: ["docker", "containers", "helm", "packaging", "devops"]
 estimated_duration: "14h"
 prerequisites:
-  - "linux-fundamentals"
-  - "git-mastery"
+  - "linux-cli"

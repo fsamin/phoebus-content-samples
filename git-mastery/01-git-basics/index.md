@@ -2,9 +2,7 @@
 title: "Git Basics"
 description: "Initialize repositories, make commits, and work with branches."
 competencies:
-  - "git-init-commit"
-  - "git-branching"
-  - "git-remote"
+  - "git"
 ---
 
 # Git Basics

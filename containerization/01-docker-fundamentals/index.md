@@ -2,9 +2,7 @@
 title: "Docker Fundamentals"
 description: "Understand images, containers, and Dockerfile. Build your first containerized application."
 competencies:
-  - "docker-images"
-  - "docker-containers"
-  - "dockerfile-writing"
+  - "docker"
 ---
 
 # Docker Fundamentals

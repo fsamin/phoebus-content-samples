@@ -2,10 +2,7 @@
 title: "Operations & Observability"
 description: "Scale applications, perform rolling updates, and implement health checks and monitoring."
 competencies:
-  - "k8s-scaling"
-  - "k8s-rolling-updates"
-  - "k8s-health-checks"
-  - "k8s-monitoring"
+  - "kubernetes"
 ---
 
 # Operations & Observability

@@ -2,9 +2,7 @@
 title: "Getting Started with Go"
 description: "Create your first project, learn the type system, control flow, and Go modules."
 competencies:
-  - "go-modules"
-  - "go-types"
-  - "go-control-flow"
+  - "golang"
 ---
 
 # Getting Started with Go

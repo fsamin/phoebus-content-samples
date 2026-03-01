@@ -4,4 +4,4 @@ icon: "kubernetes"
 tags: ["kubernetes", "k8s", "orchestration", "cloud-native", "devops"]
 estimated_duration: "16h"
 prerequisites:
-  - "containerization"
+  - "docker"

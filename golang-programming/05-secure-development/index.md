@@ -2,10 +2,7 @@
 title: "Secure Development Practices"
 description: "Write secure Go code: input validation, SQL injection prevention, secrets management, and static analysis tools."
 competencies:
-  - "go-security"
-  - "go-input-validation"
-  - "go-sast"
-  - "go-dependency-scanning"
+  - "go-web"
 ---
 
 # Secure Development Practices

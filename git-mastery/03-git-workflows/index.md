@@ -2,9 +2,7 @@
 title: "Git Workflows"
 description: "Compare GitFlow, trunk-based, and GitHub Flow. Master pull requests and code review."
 competencies:
-  - "git-workflow-strategy"
-  - "git-pull-requests"
-  - "git-code-review"
+  - "git-workflows"
 ---
 
 # Git Workflows

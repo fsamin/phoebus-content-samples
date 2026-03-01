@@ -2,9 +2,7 @@
 title: "Linux Basics"
 description: "Navigate the filesystem, master essential commands, and understand file permissions."
 competencies:
-  - "linux-filesystem"
-  - "linux-commands"
-  - "linux-permissions"
+  - "linux-cli"
 ---
 
 # Linux Basics

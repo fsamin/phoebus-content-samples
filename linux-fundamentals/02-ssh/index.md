@@ -2,9 +2,7 @@
 title: "SSH — Secure Remote Access"
 description: "Generate SSH keys, configure the SSH client, and set up secure tunnels."
 competencies:
-  - "ssh-key-management"
-  - "ssh-config"
-  - "ssh-tunneling"
+  - "linux-security"
 ---
 
 # SSH — Secure Remote Access

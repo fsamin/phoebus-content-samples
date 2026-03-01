@@ -2,10 +2,7 @@
 title: "Kubernetes Architecture"
 description: "Understand pods, services, deployments, and the Kubernetes control plane."
 competencies:
-  - "k8s-architecture"
-  - "k8s-pods"
-  - "k8s-services"
-  - "k8s-deployments"
+  - "kubernetes"
 ---
 
 # Kubernetes Architecture

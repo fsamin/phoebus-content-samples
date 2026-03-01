@@ -2,10 +2,7 @@
 title: "Git Advanced Techniques"
 description: "Master rebase, cherry-pick, stash, and interactive history rewriting."
 competencies:
-  - "git-rebase"
-  - "git-cherry-pick"
-  - "git-stash"
-  - "git-history-rewriting"
+  - "git"
 ---
 
 # Git Advanced Techniques

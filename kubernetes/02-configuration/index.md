@@ -2,9 +2,7 @@
 title: "Configuration & Storage"
 description: "Manage configuration with ConfigMaps and Secrets. Persist data with Persistent Volumes."
 competencies:
-  - "k8s-configmaps"
-  - "k8s-secrets"
-  - "k8s-volumes"
+  - "kubernetes"
 ---
 
 # Configuration & Storage

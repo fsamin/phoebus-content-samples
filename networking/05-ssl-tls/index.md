@@ -3,7 +3,7 @@ title: "SSL/TLS"
 description: "How encryption secures internet communications: certificates, HTTPS, and the TLS handshake."
 competencies:
   - "ssl-tls"
-  - "security"
+  - "network-security"
 ---
 
 # SSL/TLS

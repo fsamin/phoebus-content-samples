@@ -3,7 +3,7 @@ title: "The Bastion"
 description: "Use OVH's open-source SSH bastion to securely connect to infrastructure through a centralized, audited gateway."
 competencies:
   - "ssh-bastion"
-  - "security"
+  - "infrastructure-security"
 ---
 
 # The Bastion

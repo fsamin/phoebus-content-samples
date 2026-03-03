@@ -61,14 +61,23 @@ Now keys are automatically added to the agent the first time you use them.
 
 Agent forwarding solves a specific problem: **you're on Server A and need to connect to Server B**, but your private key is on your laptop.
 
-```
-Without forwarding:
-  Laptop → Server A → Server B
-                       ❌ Your key isn't here!
+```mermaid
+sequenceDiagram
+    participant Laptop as 💻 Laptop (SSH Agent)
+    participant A as 🖥️ Server A
+    participant B as 🖥️ Server B
 
-With forwarding:
-  Laptop → Server A → Server B
-                       ✅ Agent on laptop handles auth
+    Laptop->>A: SSH (with agent forwarding -A)
+    Note over Laptop,A: Session open
+
+    A->>B: SSH connection request
+    B-->>A: Auth challenge
+    A-->>Laptop: Forwarded challenge
+    Note over Laptop: Agent signs with private key
+    Laptop-->>A: Signed response
+    A-->>B: Signed response
+    B-->>A: ✅ Authenticated!
+    Note over Laptop: Private key never left the laptop
 ```
 
 ### How It Works

@@ -32,22 +32,17 @@ You can tell HTTPS is active by:
 
 Before encrypted communication begins, the client and server perform a **handshake**:
 
-```
-Client                              Server
-  │                                    │
-  │──── ClientHello ─────────────────►│
-  │     "I support TLS 1.3,           │
-  │      these cipher suites"         │
-  │                                    │
-  │◄──── ServerHello ─────────────────│
-  │      "Let's use TLS 1.3,          │
-  │       this cipher suite"          │
-  │      + Server Certificate         │
-  │                                    │
-  │  Client verifies certificate      │
-  │  Both derive session keys         │
-  │                                    │
-  │◄═══ Encrypted communication ═════►│
+```mermaid
+sequenceDiagram
+    participant Client as 💻 Client
+    participant Server as 🖥️ Server
+
+    Client->>Server: ClientHello (supported TLS versions, cipher suites)
+    Server-->>Client: ServerHello (chosen TLS version, cipher suite) + Certificate
+    Note over Client: Verifies certificate
+    Note over Client,Server: Both derive session keys (key exchange)
+    Client->>Server: 🔐 Encrypted communication begins
+    Server-->>Client: 🔐 Encrypted communication
 ```
 
 In TLS 1.3, this takes only **1 round-trip** (vs 2 in TLS 1.2), making connections faster.
@@ -72,13 +67,14 @@ Encryption alone isn't enough. If you encrypt your data and send it to an attack
 
 A **Certificate Authority** is a trusted organization that verifies domain ownership and signs certificates. Your browser/OS comes with a list of trusted CAs.
 
-```
-Root CA (trusted by your browser)
-    │
-    └── Intermediate CA
-            │
-            └── example.com certificate
-                (signed by Intermediate CA)
+```mermaid
+graph TD
+    Root["🔒 Root CA<br/>(trusted by browser)"]
+    Intermediate["🔒 Intermediate CA"]
+    Cert["📄 example.com certificate"]
+
+    Root -->|signs| Intermediate
+    Intermediate -->|signs| Cert
 ```
 
 When your browser receives a certificate, it follows the **chain of trust**:

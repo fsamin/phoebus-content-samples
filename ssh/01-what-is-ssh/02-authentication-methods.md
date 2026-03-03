@@ -33,23 +33,16 @@ This is the method used by professionals. Instead of a password, you prove your 
 - **Private key** — Stays on your machine, never shared. Protected by a passphrase.
 - **Public key** — Placed on every server you want to access. Safe to share openly.
 
-```
-Your machine                          Server
-┌────────────────┐                ┌────────────────┐
-│ Private key 🔑 │                │ Public key 🔓  │
-│ (secret!)      │                │ (in             │
-│                │                │  authorized_keys)│
-└───────┬────────┘                └───────┬────────┘
-        │                                │
-        │──── "Prove you have the ──────►│
-        │      matching private key"     │
-        │                                │
-        │◄─── Challenge ────────────────│
-        │                                │
-        │──── Signed response ─────────►│
-        │     (using private key)        │
-        │                                │
-        │◄─── "Verified! Welcome" ──────│
+```mermaid
+sequenceDiagram
+    participant Client as 💻 Your Machine<br/>(Private key 🔑)
+    participant Server as 🖥️ Server<br/>(Public key 🔓 in authorized_keys)
+
+    Server->>Client: Challenge: "Prove you have the matching private key"
+    Note over Client: Signs challenge with private key
+    Client-->>Server: Signed response
+    Note over Server: Verifies with public key
+    Server-->>Client: ✅ Verified! Welcome
 ```
 
 The private key **never leaves your machine**. The server sends a challenge that only the matching private key can solve. If the response is correct, you're in.

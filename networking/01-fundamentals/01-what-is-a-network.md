@@ -68,22 +68,22 @@ In data centers and servers, **wired Ethernet is always preferred** for its reli
 
 ### A Simple Office Network
 
-```
-Internet
-    │
-┌───┴───┐
-│Router │ ← connects office to internet
-└───┬───┘
-    │
-┌───┴───┐
-│Firewall│ ← blocks unwanted traffic
-└───┬───┘
-    │
-┌───┴────┐
-│ Switch  │ ← connects all devices together
-└┬──┬──┬─┘
- │  │  │
- PC PC Printer
+```mermaid
+graph TD
+    Internet((Internet))
+    Router[🌐 Router]
+    Firewall[🛡️ Firewall]
+    Switch[🔀 Switch]
+    PC1[💻 PC 1]
+    PC2[💻 PC 2]
+    Printer[🖨️ Printer]
+
+    Internet --- Router
+    Router --- Firewall
+    Firewall --- Switch
+    Switch --- PC1
+    Switch --- PC2
+    Switch --- Printer
 ```
 
 ## Clients and Servers
@@ -95,9 +95,12 @@ In most networks, devices play one of two roles:
 
 This is the **client-server model**, and it is the foundation of nearly all internet services.
 
-```
-Client (browser)  ──── request ────►  Server (web app)
-                  ◄── response ────
+```mermaid
+sequenceDiagram
+    participant Client as 💻 Client (browser)
+    participant Server as 🖥️ Server (web app)
+    Client->>Server: Request
+    Server-->>Client: Response
 ```
 
 A single physical machine can be both a client and a server. Your laptop is a client when browsing the web, but it could also run a server that other devices connect to.

@@ -16,14 +16,26 @@ Without DNS, you would need to memorize IP addresses for every website — like 
 
 DNS is organized as a **tree**, with the root at the top:
 
-```
-                    . (root)
-                  /    |    \
-               com    org    fr
-              / | \         |
-         google  github   wikipedia
-           |       |
-          www    api
+```mermaid
+graph TD
+    Root(". (root)")
+    COM(".com")
+    ORG(".org")
+    FR(".fr")
+    Google("google")
+    GitHub("github")
+    Wiki("wikipedia")
+    WWW("www.google.com")
+    API("api.github.com")
+
+    Root --- COM
+    Root --- ORG
+    Root --- FR
+    COM --- Google
+    COM --- GitHub
+    ORG --- Wiki
+    Google --- WWW
+    GitHub --- API
 ```
 
 Each level is called a **zone**, managed by different organizations:
@@ -39,29 +51,29 @@ Each level is called a **zone**, managed by different organizations:
 
 When you type `www.example.com` in your browser, here's what happens:
 
-```
-1. Browser → Local DNS cache: "Do I already know this?"
-   → If yes: use cached IP. Done.
-   → If no: continue...
+```mermaid
+sequenceDiagram
+    participant Browser as 💻 Browser
+    participant Cache as 📋 Local Cache
+    participant Recursive as 🔄 Recursive DNS
+    participant Root as 🌐 Root Server
+    participant TLD as 📂 .com TLD Server
+    participant Auth as 🎯 Authoritative Server
 
-2. Browser → OS resolver → Recursive DNS server (e.g., 8.8.8.8)
-   "What is the IP of www.example.com?"
+    Browser->>Cache: www.example.com ?
+    Cache-->>Browser: Not cached
 
-3. Recursive server → Root server
-   "Who handles .com?"
-   ← "Ask the .com TLD servers"
+    Browser->>Recursive: What is www.example.com?
+    Recursive->>Root: Who handles .com?
+    Root-->>Recursive: Ask .com TLD servers
 
-4. Recursive server → .com TLD server
-   "Who handles example.com?"
-   ← "Ask ns1.example.com (the authoritative server)"
+    Recursive->>TLD: Who handles example.com?
+    TLD-->>Recursive: Ask ns1.example.com
 
-5. Recursive server → ns1.example.com (authoritative)
-   "What is the IP of www.example.com?"
-   ← "93.184.216.34"
+    Recursive->>Auth: IP of www.example.com?
+    Auth-->>Recursive: 93.184.216.34
 
-6. Recursive server → Browser
-   "93.184.216.34"
-   (and caches the result for next time)
+    Recursive-->>Browser: 93.184.216.34 (cached)
 ```
 
 This entire process typically takes **less than 100 milliseconds** and involves 3–4 network round-trips. Thanks to caching, most lookups are resolved much faster.

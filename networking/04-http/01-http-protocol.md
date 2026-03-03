@@ -12,15 +12,13 @@ estimated_duration: "20m"
 
 HTTP follows a simple **request-response** model:
 
-```
-Client (browser)                    Server
-     │                                │
-     │── HTTP Request ──────────────►│
-     │   GET /index.html              │
-     │                                │
-     │◄── HTTP Response ─────────────│
-     │   200 OK                       │
-     │   <html>...</html>             │
+```mermaid
+sequenceDiagram
+    participant Client as 💻 Client (browser)
+    participant Server as 🖥️ Server
+
+    Client->>Server: GET /index.html HTTP/1.1
+    Server-->>Client: 200 OK + <html>...</html>
 ```
 
 ## Anatomy of an HTTP Request

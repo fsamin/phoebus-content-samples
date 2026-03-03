@@ -79,29 +79,19 @@ ssh -L 5432:localhost:5432 user@server
 
 When you connect to an SSH server, several things happen:
 
-```
-1. TCP Connection
-   Client ──── TCP port 22 ────► Server
+```mermaid
+sequenceDiagram
+    participant Client as 💻 Client
+    participant Server as 🖥️ Server (sshd)
 
-2. Protocol Negotiation
-   "I support SSH-2.0"  ◄────►  "Me too, let's use SSH-2.0"
-
-3. Key Exchange (Encryption Setup)
-   Client and Server agree on encryption keys
-   (using Diffie-Hellman or similar)
-   → All communication is now encrypted
-
-4. Server Authentication
-   Server proves its identity with its host key
-   Client checks: "Is this really the server I expect?"
-
-5. User Authentication
-   Client proves its identity:
-   → Option A: Password
-   → Option B: SSH key (public key authentication)
-
-6. Session
-   Encrypted shell session begins
+    Client->>Server: 1. TCP connection (port 22)
+    Client->>Server: 2. Protocol negotiation (SSH-2.0)
+    Note over Client,Server: 3. Key Exchange (Diffie-Hellman)
+    Note over Client,Server: All communication is now encrypted
+    Server-->>Client: 4. Server authentication (host key)
+    Note over Client: "Is this the server I expect?"
+    Client->>Server: 5. User authentication (password or key)
+    Note over Client,Server: 6. Encrypted shell session begins
 ```
 
 The critical insight: **encryption is established before any credentials are sent**. Even if you use password authentication, the password is encrypted in transit.

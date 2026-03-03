@@ -14,21 +14,14 @@ OVH uses The Bastion to manage SSH access across their massive infrastructure, h
 
 ## Architecture
 
-```
-┌──────────────┐        ┌─────────────────────┐        ┌──────────────┐
-│  Your laptop │──SSH──►│    THE BASTION       │──SSH──►│   Target     │
-│              │        │                      │        │   Server     │
-│  Private key │        │  ┌─────────────────┐ │        │              │
-│              │        │  │ Your account    │ │        │  Accepts     │
-│              │        │  │ - egress keys   │ │        │  bastion's   │
-│              │        │  │ - permissions   │ │        │  egress key  │
-│              │        │  │ - group membr.  │ │        │              │
-│              │        │  └─────────────────┘ │        └──────────────┘
-└──────────────┘        │                      │
-                        │  Session recording   │
-                        │  Access logging      │
-                        │  RBAC engine         │
-                        └─────────────────────┘
+```mermaid
+graph LR
+    Laptop["💻 Your Laptop<br/>Private key"]
+    Bastion["🏰 THE BASTION<br/>• Your account & egress keys<br/>• RBAC engine<br/>• Session recording<br/>• Audit logging"]
+    Target["🖥️ Target Server<br/>Accepts bastion's egress key"]
+
+    Laptop -->|SSH connection 1| Bastion
+    Bastion -->|SSH connection 2| Target
 ```
 
 ### Key Concepts
@@ -43,14 +36,19 @@ OVH uses The Bastion to manage SSH access across their massive infrastructure, h
 
 Unlike `ProxyJump` (which creates an end-to-end tunnel), The Bastion terminates the SSH connection and opens a new one:
 
+```mermaid
+graph LR
+    subgraph ProxyJump
+        C1["💻 Client"] ===|"encrypted tunnel (end-to-end)"| S1["🖥️ Server"]
+    end
 ```
-ProxyJump:
-  Client ═══════════ encrypted tunnel ═══════════► Server
-          (bastion just forwards TCP, no inspection)
 
-The Bastion (protocol break):
-  Client ──SSH──► Bastion ──SSH──► Server
-          (conn 1)        (conn 2)
+```mermaid
+graph LR
+    subgraph The Bastion - Protocol Break
+        C2["💻 Client"] -->|"SSH conn 1"| B["🏰 Bastion<br/>🔍 Inspection<br/>📹 Recording<br/>✅ Authorization"]
+        B -->|"SSH conn 2"| S2["🖥️ Server"]
+    end
 ```
 
 Why protocol break? Because the bastion can:

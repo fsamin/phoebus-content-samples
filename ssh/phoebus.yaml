@@ -3,3 +3,4 @@ description: "From zero to bastion: understand SSH, create and manage keys on ev
 icon: "lock"
 tags: ["ssh", "security", "bastion", "keys", "remote-access"]
 estimated_duration: "2h"
+prerequisites: []

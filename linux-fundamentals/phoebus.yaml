@@ -1,6 +1,6 @@
 title: "Linux Fundamentals"
 description: "Master the Linux command line, SSH remote access, and GPG encryption. The essential foundation for any DevOps engineer."
-icon: "linux"
+icon: "🐧"
 tags: ["linux", "ssh", "gpg", "security", "cli"]
 estimated_duration: "12h"
 prerequisites: []

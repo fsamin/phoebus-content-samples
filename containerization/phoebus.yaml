@@ -1,6 +1,6 @@
 title: "Containerization with Docker & Helm"
 description: "Build, ship, and run applications with Docker. Package Kubernetes applications with Helm charts."
-icon: "docker"
+icon: "🐳"
 tags: ["docker", "containers", "helm", "packaging", "devops"]
 estimated_duration: "14h"
 prerequisites:

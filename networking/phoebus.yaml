@@ -1,6 +1,6 @@
 title: "Networking Essentials"
 description: "Understand computer networking from scratch: how machines communicate, TCP/IP, DNS, HTTP, and TLS. The foundation for any DevOps or cloud engineer."
-icon: "global"
+icon: "🌐"
 tags: ["networking", "tcp", "ip", "dns", "http", "tls", "ssl"]
 estimated_duration: "7h"
 prerequisites: []

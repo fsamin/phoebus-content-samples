@@ -1,6 +1,6 @@
 title: "Virtualization Fundamentals"
 description: "From zero to cloud: understand virtualization from scratch, discover hypervisors, vSphere, OpenStack, and the difference between private and public cloud models."
-icon: "cloud"
+icon: "☁️"
 tags: ["virtualization", "vmware", "vsphere", "openstack", "cloud", "infrastructure"]
 estimated_duration: "8h"
 prerequisites: []

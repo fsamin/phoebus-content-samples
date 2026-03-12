@@ -1,6 +1,6 @@
 title: "SSH Mastery"
 description: "From zero to bastion: understand SSH, create and manage keys on every OS, configure secure connections, and use The Bastion for enterprise access management."
-icon: "lock"
+icon: "🔒"
 tags: ["ssh", "security", "bastion", "keys", "remote-access"]
 estimated_duration: "2h"
 prerequisites: []

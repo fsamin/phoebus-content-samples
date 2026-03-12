@@ -128,6 +128,54 @@ Get-Content $env:USERPROFILE\.ssh\id_ed25519.pub
 
 ---
 
+## Windows (WSL — Windows Subsystem for Linux)
+
+WSL (Windows Subsystem for Linux) lets you run a full Linux environment directly inside Windows. If you have WSL installed, you can use the native Linux SSH tools — which tend to handle permissions more reliably than Windows-native OpenSSH.
+
+### Open a WSL Terminal
+
+Launch your WSL distribution from the Start menu, Windows Terminal, or run `wsl` in PowerShell.
+
+### Generate a Key
+
+The process is identical to Linux:
+
+```bash
+ssh-keygen -t ed25519 -C "your.email@example.com"
+```
+
+### Key Location
+
+Keys are stored in `~/.ssh/` inside the WSL filesystem (e.g., `/home/username/.ssh/`). This is a **separate** location from the Windows-native path `C:\Users\YourName\.ssh\` — the two are not shared automatically.
+
+### Permissions
+
+Unlike Windows-native OpenSSH, WSL respects Linux file permissions properly. Make sure your key permissions are correct:
+
+```bash
+chmod 700 ~/.ssh
+chmod 600 ~/.ssh/id_ed25519
+chmod 644 ~/.ssh/id_ed25519.pub
+```
+
+### Sharing Keys Between WSL and Windows
+
+If you need the same key in both environments, you can copy between the two filesystems:
+
+```bash
+# Copy key from WSL to Windows
+cp ~/.ssh/id_ed25519 /mnt/c/Users/YourName/.ssh/
+cp ~/.ssh/id_ed25519.pub /mnt/c/Users/YourName/.ssh/
+
+# Or copy from Windows to WSL (then fix permissions)
+cp /mnt/c/Users/YourName/.ssh/id_ed25519 ~/.ssh/
+chmod 600 ~/.ssh/id_ed25519
+```
+
+> 💡 **Tip:** If you mostly work inside WSL, generate and keep your keys in WSL. The Linux permission model is stricter and avoids common Windows permission pitfalls.
+
+---
+
 ## Windows (with PuTTY/PuTTYgen)
 
 If you use PuTTY (older method), key generation is different:
@@ -167,12 +215,6 @@ chmod 700 ~/.ssh
 echo "ssh-ed25519 AAAAC3NzaC1..." >> ~/.ssh/authorized_keys
 chmod 600 ~/.ssh/authorized_keys
 ```
-
-### Method 3: GitHub/GitLab
-
-For Git hosting, paste your public key in:
-- **GitHub**: Settings → SSH and GPG Keys → New SSH key
-- **GitLab**: Settings → SSH Keys
 
 ## Multiple Keys
 

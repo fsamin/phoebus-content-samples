@@ -15,20 +15,18 @@ In a real-world infrastructure, you might have:
 
 Without a centralized solution, managing this is a nightmare:
 
+```mermaid
+graph LR
+    A["🔑 Developer A's key"] --> S1["Server 1"]
+    A --> S2["Server 2"]
+    A --> S47["Server 47"]
+    A --> S312["Server 312"]
+    B["🔑 Developer B's key"] --> S1
+    B --> S5["Server 5"]
+    B --> Etc["..."]
 ```
-Traditional approach (doesn't scale):
 
-Developer A's key → authorized_keys on Server 1
-                  → authorized_keys on Server 2
-                  → authorized_keys on Server 47
-                  → authorized_keys on Server 312
-
-Developer B's key → authorized_keys on Server 1
-                  → authorized_keys on Server 5
-                  → ...
-
-When Developer A leaves: remove key from ALL servers 😱
-```
+> When Developer A leaves: remove their key from ALL servers 😱
 
 ### Real Problems
 
@@ -42,18 +40,19 @@ When Developer A leaves: remove key from ALL servers 😱
 
 A **bastion host** (also called **jump host**) is a single, hardened server that acts as the **mandatory gateway** for all SSH connections.
 
+```mermaid
+graph LR
+    subgraph before["Before (direct access)"]
+        U1["👥 Users"] -->|"SSH<br/>(no control, no logging)"| S1["🖥️ Servers"]
+    end
 ```
-Before (direct access):
-  Users ──── SSH ────► Servers
-  (no control, no logging)
 
-After (bastion):
-  Users ──── SSH ────► BASTION ──── SSH ────► Servers
-                       │
-                       ├─ Authentication
-                       ├─ Authorization
-                       ├─ Session recording
-                       └─ Audit logging
+```mermaid
+graph LR
+    subgraph after["After (bastion)"]
+        U2["👥 Users"] -->|"SSH"| Bastion["🏰 BASTION<br/>✅ Authentication<br/>🔐 Authorization<br/>📹 Session recording<br/>📋 Audit logging"]
+        Bastion -->|"SSH"| S2["🖥️ Servers"]
+    end
 ```
 
 ### Key Principles

@@ -10,13 +10,10 @@ estimated_duration: "15m"
 
 Before SSH, system administrators used **Telnet** to connect to remote servers. Telnet worked, but it had a fatal flaw: **everything was sent in plain text** — including your username and password.
 
-```
-Telnet (before SSH):
-  Admin ──── "password123" ────► Server
-                  │
-             Anyone on the
-             network can read
-             your password
+```mermaid
+graph LR
+    Admin["👤 Admin"] -->|"password123"| Server["🖥️ Server"]
+    Spy["🕵️ Anyone on the network"] -.->|"can read your password"| Admin
 ```
 
 In the early days of the internet, this wasn't considered a major issue because networks were small and trusted. But as the internet grew, this became a serious security risk.
@@ -25,12 +22,10 @@ In the early days of the internet, this wasn't considered a major issue because 
 
 In 1995, Finnish researcher **Tatu Ylönen** had his university network compromised by a password-sniffing attack. He wrote SSH (Secure Shell) as a replacement for Telnet that **encrypts everything**.
 
-```
-SSH:
-  Admin ──── [encrypted data] ────► Server
-                    │
-               Attacker sees only
-               meaningless gibberish
+```mermaid
+graph LR
+    Admin["👤 Admin"] -->|"[encrypted data]"| Server["🖥️ Server"]
+    Spy["🕵️ Attacker"] -.->|"sees only meaningless gibberish"| Admin
 ```
 
 SSH quickly became the standard for remote server access. Today, virtually every server in the world runs an SSH daemon.

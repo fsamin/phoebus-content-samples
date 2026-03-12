@@ -2,7 +2,7 @@
 title: "Using SSH"
 description: "Connect to servers, transfer files, and use SSH tunnels and agent forwarding."
 competencies:
-  - "ssh-usage"
+  - "ssh-basics"
 ---
 
 # Using SSH

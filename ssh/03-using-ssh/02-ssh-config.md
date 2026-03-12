@@ -108,8 +108,9 @@ Host internal-db
 
 Now `ssh internal-db` automatically connects through the bastion:
 
-```
-Your machine → bastion.example.com → 10.0.1.50
+```mermaid
+graph LR
+    You["💻 Your machine"] --> Bastion["bastion.example.com"] --> Target["10.0.1.50"]
 ```
 
 ## Useful Options

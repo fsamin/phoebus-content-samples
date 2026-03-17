@@ -3,4 +3,11 @@ description: "Learn Go from installation to building secure REST APIs. Covers la
 icon: "💻"
 tags: ["golang", "go", "rest-api", "http", "security", "backend"]
 estimated_duration: "16h"
-prerequisites: ["linux-fundamentals", "git-mastery"]
+prerequisites:
+  - "linux-cli"
+  - "git"
+  - "http"
+depends_on:
+  - "linux-fundamentals"
+  - "git-mastery"
+  - "networking-essentials"

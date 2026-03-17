@@ -3,4 +3,7 @@ description: "From zero to cloud: understand virtualization from scratch, discov
 icon: "☁️"
 tags: ["virtualization", "vmware", "vsphere", "openstack", "cloud", "infrastructure"]
 estimated_duration: "8h"
-prerequisites: []
+prerequisites:
+  - "networking-basics"
+depends_on:
+  - "networking-essentials"

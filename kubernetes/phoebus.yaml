@@ -4,4 +4,9 @@ icon: "☸️"
 tags: ["kubernetes", "k8s", "orchestration", "cloud-native", "devops"]
 estimated_duration: "16h"
 prerequisites:
-  - "containerization"
+  - "docker"
+  - "linux-cli"
+  - "networking-basics"
+depends_on:
+  - "containerization-with-docker-helm"
+  - "networking-essentials"

@@ -24,7 +24,7 @@ The key mental model: a container is just a process with its own filesystem and 
 
 The following diagram illustrates the key architectural differences between containers and virtual machines:
 
-![Containers vs VMs Architecture](./assets/containers-vs-vms.svg)
+![Containers vs VMs Architecture|80%](./assets/containers-vs-vms.svg)
 
 | Aspect | Container | Virtual Machine |
 |--------|-----------|----------------|
@@ -37,7 +37,7 @@ The following diagram illustrates the key architectural differences between cont
 
 ## Docker Images
 
-![Docker Logo](./assets/docker-logo.png)
+![Docker Logo|200](./assets/docker-logo.png)
 
 An image is a **read-only template** for creating containers. Images are built in **layers**:
 
